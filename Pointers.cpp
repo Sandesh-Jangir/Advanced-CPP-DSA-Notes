@@ -4,6 +4,9 @@ using namespace std;
 // This function is to understand  "call-by-referance" with the help of pointers.
 void CallByReferance_Pointers(int *x, int *y);
 
+// Passing arrays as referance using pointer.
+void ProcessArray(int *arr, int array_lenght); 
+
 int main()
 {
     /**
@@ -27,6 +30,12 @@ int main()
      * Using prefix(--) postfix(++) operators -> First the value of the pointer will be returned then the pointer will be updated. example -> cout << *ptr++ << ", " << ptr; <- Output(example) : 10, 0x61fef8
      * Case 2nd -> cout << (*ptr)++; <- Output(example) : 11;
      * (Simmilar goes for prefix operator).
+     * 
+     * Arrays as Pointers - C++
+     * 
+     * The name of the array acts as a pointer to the array's element at 0th index.
+     * Let Say -> int arr[] = {1,2,3}; Therefore "arr" -> &arr[0];
+     * Hence all the pointer arithmetic can also be used at the arrays and "call by reference" can also be used to pass arrays in the function by reference.
      */
 
     int x = 10;
@@ -45,11 +54,25 @@ int main()
     cout <<endl<< "-------Pass Value By Reference Using Pointers------"<<endl;
     int a = 10, b = 20;
     CallByReferance_Pointers(&a, &b);
-    cout << endl << "A (New) : " << a << " B (New) : " << b;
+    cout << endl << "A (New) : " << a << " B (New) : " << b << endl;
+
+    // Arrays As Pointers
+    int arr[4] = {2,4,8,16};
+    cout << "Array (Processed Using Pointer Theory) : ";
+    ProcessArray(arr, 4);
+
     return 0;
 }
 
 // Referencing using pointers.
 void CallByReferance_Pointers(int *x, int *y){
     *x = 100, *y = 200;
+}
+
+// Processing arrays using pointers.
+void ProcessArray(int *arr, int array_lenght){
+    for (int i = 0; i < array_lenght; i++)
+    {
+        cout << *(arr+i) << " ";
+    }
 }
