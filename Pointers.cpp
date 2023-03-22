@@ -36,6 +36,13 @@ int main()
      * The name of the array acts as a pointer to the array's element at 0th index.
      * Let Say -> int arr[] = {1,2,3}; Therefore "arr" -> &arr[0];
      * Hence all the pointer arithmetic can also be used at the arrays and "call by reference" can also be used to pass arrays in the function by reference.
+     * 
+     * Types of Pointers - C++
+     * 
+     1. Wild Pointer -> When a pointer is declared but a specific value is not assigned to it, a garbage value is stored in this pointer and thus it points towards a random address assigned by the compiler.
+     2. Null Pointer -> If we want to have a pointer that is just declared but will be assigned later and we doesn't want it to be initialised by a garbage value by the compiler, we can use null pointer. example -> int *ptr = NULL; But the drawback is that we can't dereference;
+     3. Dangling Pointers -> It is the type of pointer that points to a memory location that isn't valid. Sample Usecase -> *ptr was declared at the global scope and then was assigned with the address of a variable that was existing in a for loop. therefore after the for loop will be completed that particular memory location will not contain the same variable. 
+     4. Void Pointers (Generic Pointers) -> It is a special pointer that can point to any datatype value. Example -> Let's say x is an int variable and y is a float, then -> void *ptr = &x; ptr = &y; <- Compiles without error.
      */
 
     int x = 10;
