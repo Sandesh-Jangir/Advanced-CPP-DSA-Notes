@@ -1,6 +1,5 @@
 # Advanced-CPP-DSA-Notes
-
-This repository contains some of the advanced DSA topics with the approaches required therefore.
+A C++ based repository that contains some of the advanced DSA topics with the approaches required therefore. 
 
 <hr>
 
