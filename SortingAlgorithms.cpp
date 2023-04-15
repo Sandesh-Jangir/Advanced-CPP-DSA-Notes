@@ -23,6 +23,21 @@ void selectionSort(int n, int *array){
         if (array[min_index] < array[i]) swap(array[i], array[min_index]);
     }
 }
+
+void insertionSort(int n, int *array){
+    for (int i = 1; i < n; i++){
+        int current = array[i]; // Current Element
+        int j = i-1; // (Initially) Last element of the sorted subarray.
+        // Pushing the Sorted part of array.
+        while(j >= 0 && array[j] > current){
+            array[j+1] = array[j];
+            j--;
+        }
+        // Inserting the current element at its correct position.
+        array[j+1] = current;
+    }
+    
+}
 int main()
 {
     /**
@@ -30,6 +45,7 @@ int main()
      *
      * Bubble Sort - Repeatedly swap two numbers if in wrong order.
      * Selection Sort - Repeatedly find the smallest element of the unsorted array and put it in the beginning.
+     * Insertion Sort - Repeatedly take element from unsorted subarray and insert in sorted subarray.
      *
      * Space Time Complexity of these Algorithms.
      *
@@ -44,12 +60,18 @@ int main()
      * Time Complexity - O(n^2)
      * Space Complexity - O(1)
      * Maximum Number Of Swaps - O(n)
+     * 
+     * Insertion Sort [Stable] ->
+     * 
+     * Time Complexity -> O(n^2) or bigOmega(n) <- Best Case.
+     * Space Complexity -> O(1)
      */
 
     int mySampleArray[] = {5, 2, 8, 7, 9};
 
     bubbleSort(5, mySampleArray);
     selectionSort(5, mySampleArray);
+    insertionSort(5, mySampleArray);
 
     // Printing the array.
     for (int i = 0; i < 5; i++)
